@@ -92,7 +92,7 @@ jobs:
         ##内网穿透服务##
         ####################################################################################
         sudo ./clear_tree
-        sudo ./build_firmware_bkye $TNAME
+        sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
       uses: actions/upload-artifact@master
