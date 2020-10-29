@@ -29,8 +29,6 @@ jobs:
         sudo apt-get -y install unzip libtool-bin curl cmake gperf gawk flex bison nano xxd \
         cpio git python-docutils gettext automake autopoint texinfo build-essential help2man \
         pkg-config zlib1g-dev libgmp3-dev libmpc-dev libmpfr-dev libncurses5-dev libltdl-dev gcc-multilib
-        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
-        go env
     - name: Clone source code
       run: |
         git clone --depth=1 https://github.com/bkye/rt-n56u.git /opt/rt-n56u
@@ -39,6 +37,8 @@ jobs:
         wget https://github.com/hanwckf/padavan-toolchain/releases/download/v1.0/mipsel-linux-uclibc.tar.xz
         tar -xvf mipsel-linux-uclibc.tar.xz -C toolchain-3.4.x
         mkdir -p /opt/images/
+        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
+        go env
     - name: Build Firmware
       env:
         TNAME: RM2100
