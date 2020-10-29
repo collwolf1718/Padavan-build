@@ -37,7 +37,6 @@ jobs:
         wget https://github.com/hanwckf/padavan-toolchain/releases/download/v1.0/mipsel-linux-uclibc.tar.xz
         tar -xvf mipsel-linux-uclibc.tar.xz -C toolchain-3.4.x
         mkdir -p /opt/images/
-        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
     - name: Build Firmware
       env:
         TNAME: RM2100
@@ -93,6 +92,7 @@ jobs:
         ##内网穿透服务##
         ####################################################################################
         sudo ./clear_tree
+        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
         sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
