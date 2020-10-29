@@ -41,7 +41,9 @@ jobs:
       env:
         TNAME: RM2100
       run: |
-        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
+        go env -w GOROOT=/opt/rt-n56u/trunk/tools/go/go
+        go env -w GOBIN=/opt/rt-n56u/trunk/tools/go/go/bin/go
+        go env -w GOTOOLDIR=/opt/rt-n56u/trunk/tools/go/go/pkg/tool/linux_amd64
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
