@@ -38,7 +38,6 @@ jobs:
         tar -xvf mipsel-linux-uclibc.tar.xz -C toolchain-3.4.x
         mkdir -p /opt/images/
         export GOROOT=/opt/rt-n56u/trunk/tools/go/go
-        go env
     - name: Build Firmware
       env:
         TNAME: RM2100
