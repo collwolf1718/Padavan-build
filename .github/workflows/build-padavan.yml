@@ -41,6 +41,7 @@ jobs:
       env:
         TNAME: RM2100
       run: |
+        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
@@ -92,7 +93,6 @@ jobs:
         ##内网穿透服务##
         ####################################################################################
         sudo ./clear_tree
-        export GOROOT=/opt/rt-n56u/trunk/tools/go/go
         sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
     - name : Upload packages
